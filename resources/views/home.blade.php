@@ -3,18 +3,25 @@
 
 	<!--===== HEAD =====-->
 	<head>
+
+		<!--===== META DATA =====-->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="Nordic Digital Humanities, Nordic, Digital Humanities, Scandinavia, Corpus Linguistics, Christopher Oscarson, Brady Hammond, Merrill Asp, Selma Legerlöf, BYU, BYU Digital Humanities">
+        <meta name="keywords" content="Nordic Digital Humanities, Nordic, Digital Humanities, Scandinavia, Corpus Linguistics, Christopher Oscarson, Brady Hammond, Merrill Asp, BYU, BYU Digital Humanities, Brigham Young University">
         <meta name="description" content="BYU's Nordic Digital Humanities Lab is an experimental publication that distributes digital humanities research specific to Nordic and Scandinavian works. Until recently the lab has focused primarily on topic modeling, but we are preparing to release new and exciting material in the near future.">
+
+        <!--===== TITLE =====-->
         <title>Nordic Digital Humanities Home</title>
+
+        <!--===== LINKS =====-->
         <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/app.css"> 
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="css/cards.css">
+
     </head>
 
     <!--===== BODY =====-->
@@ -52,12 +59,12 @@
               				</a>
               			</li>
               			<li class="" id="about-link">
-              				<a class="white-text" href="/">
+              				<a class="white-text" href="coming_soon">
               					About
               				</a>
               			</li>
               			<li class="" id="contact-link">
-              				<a class="white-text" href="/">
+              				<a class="white-text" href="coming_soon">
               					Contact Us
               				</a>
               			</li>
@@ -67,18 +74,16 @@
 	    </nav>
 
 	    <!--===== JUMBOTRON =====-->
-
 	    <div class="jumbotron" id="main-jumbotron">
 		    <div class="container">
 			   	<p id="main-jumbotron-text">
-			    	The Nordic Digital Humanities Lab hosts a variety of projects researched by faculty and students at Brigham Young University using various computational tools and visualization technologies to explore Nordic literature, art, media, and cultures in new ways.
+			    	The Nordic Digital Humanities Lab hosts a variety of projects researched by faculty and students at Brigham Young University using various computational tools and visualization technologies to explore Nordic literature, art, media, and cultures in new ways. Feel free to browse the projects featured below or click <a href="coming_soon" id="main-jumbotron-link"><u>here</u></a> for more options.
 			    </p>
 			</div>
 	    </div>
 
 	    <!--===== PROJECT CARDS =====-->
-
-	    @if (count($projects) > 4)
+	    @if (count($projects) > 3)
 	      	<div class="carousel carousel-showmanymoveone slide" id="carouselivo">
 	        	<div class="carousel-inner">
 	        		@foreach($projects as $project)
@@ -87,7 +92,7 @@
 	          			@else
 	          				<div class="item">
 	          			@endif
-		          				<div class="card-container col-md-3">
+		          				<div class="card-container col-md-3 col-sm-12">
 		          					<div class="card">
 					             		<div class="front">
 					                 		<div class="cover">
@@ -101,7 +106,7 @@
 					                         		<h3 class="name">
 					                         			{{ $project->project_name }}
 					                         		</h3>
-					                     			<p class="profession" id="wrapper">
+					                     			<p class="profession">
 					                     				{{ $project->project_description }}
 					                     			</p>
 					                     		</div>
@@ -125,9 +130,15 @@
 					                         			Click here to view the project.
 					                         		</h4>
 					                         		<div class="text-center">
-						                         		<button type="button" class="btn btn-lg btn-primary" disabled>
-						                         			Project Page
-						                         		</button>
+					                         			@if ($project->view === null)
+							                         		<button type="button" class="btn btn-lg btn-primary" disabled>
+							                         			Project Page
+							                         		</button>
+							                         	@else 
+							                         		<a class="btn btn-lg btn-primary" href="projects/{{ $project->project_id }}/{{ $project->project_name }}">
+							                         			Project Page
+							                         		</a>
+							                         	@endif
 						                         	</div>
 						                         	<br>
 					                         		<h4 class="text-center">
@@ -164,7 +175,7 @@
 	  			<div class="col-6 col-md-4">
 	  		@endif
 		  	@foreach($projects as $project)
-		  		@if (count($projects) == 4 || count($projects) == 2) 
+		  		@if (count($projects) == 2) 
 		  			<div class="card-container col-md-3">
 		  		@elseif (count($projects) == 3 || count($projects) == 1)
 		  			<div class="card-container col-md-4 col-sm-12">
@@ -206,9 +217,15 @@
 	                         			Click here to view the project.
 	                         		</h4>
 	                         		<div class="text-center">
-		                         		<button type="button" class="btn btn-lg btn-primary" disabled>
-		                         			Project Page
-		                         		</button>
+		                         		@if ($project->view === null)
+			                         		<button type="button" class="btn btn-lg btn-primary" disabled>
+			                         			Project Page
+			                         		</button>
+			                         	@else 
+			                         		<a class="btn btn-lg btn-primary" href="projects/{{ $project->project_id }}/{{ $project->project_name }}">
+			                         			Project Page
+			                         		</a>
+			                         	@endif
 		                         	</div>
 		                         	<br>
 	                         		<h4 class="text-center">
@@ -229,18 +246,80 @@
     	@endif
 
 		<!--===== FOOTER =====-->
-
-	   <div class="container text-center">
-      	<hr>
-        	<footer>
+		<footer role="footer">
+			<div class="container">
+				<div class="col-md-3 col-sm-12">
+					<h4>
+						Site
+					</h4>
+					<ul>
+						@foreach($links as $link)
+							@if($link->link_category == "site")
+								<li>
+									<a href="{{$link->link_url}}" class="light-grey-text">
+										{{$link->link_text}}
+									</a>
+								</li>
+							@endif
+						@endforeach
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-12">
+					<h4>
+						Administrator Tools
+					</h4>
+					<ul>
+						@foreach($links as $link)
+							@if($link->link_category == "administrator_tools")
+								<li>
+									<a href="{{$link->link_url}}" class="light-grey-text">
+										{{$link->link_text}}
+									</a>
+								</li>
+							@endif
+						@endforeach
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-12">
+					<h4>
+						Help
+					</h4>
+					<ul>
+						@foreach($links as $link)
+							@if($link->link_category == "help")
+								<li>
+									<a href="{{$link->link_url}}" class="light-grey-text">
+										{{$link->link_text}}
+									</a>
+								</li>
+							@endif
+						@endforeach
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-12">
+					<h4>
+						Related Links
+					</h4>
+					<ul>
+						@foreach($links as $link)
+							@if($link->link_category == "related_links")
+								<li>
+									<a href="{{$link->link_url}}" class="light-grey-text">
+										{{$link->link_text}}
+									</a>
+								</li>
+							@endif
+						@endforeach
+					</ul>
+				</div>
+			</div>
+			<div class="container text-center">
+	      		<hr>
           		<p>
-            		<a class="grey-text" href="http://home.byu.edu/home/">
-              			Brigham Young University
-            		</a> 
-            		© All Rights Reserved.
+              		Brigham Young University © All Rights Reserved.
           		</p>
-        	</footer>
-      	</div> 
+	      	</div> 
+		</footer>
 
 	    <!--===== SCRIPTS =====-->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
@@ -258,7 +337,8 @@
 			{
         		(function()
         		{
-  					$('#carouselivo').carousel({ interval: 10000 });
+  					$('#carouselivo').carousel({});
+
   				}());
 
 				(function()
@@ -281,7 +361,11 @@
 				}());
 
 				$(".profession").dotdotdot({
-					watch: "window"
+					watch: true
+				});
+
+				$(".name").dotdotdot({
+					watch: true
 				});
         	});
 		</script>

@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'HomeController@getPage');
+Route::get('projects/{project_id}/{project_name}', 'ProjectController@getIndividualProject');
+Route::get('coming_soon', 'ComingSoonController@getPage');
+
+/*
+Route::get('projects')
+
+*/

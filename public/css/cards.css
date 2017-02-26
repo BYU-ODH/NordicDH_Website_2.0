@@ -44,6 +44,7 @@
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
 	position: relative;
+    cursor: pointer;
 }
 
 
@@ -151,6 +152,7 @@
     margin: 10px 0 0;
     text-align: center;
     text-transform: capitalize;
+    height: 30px;
 }
 
 .card h5
