@@ -4069,20 +4069,20 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-primary {
   color: #fff;
-  background-color: #3097D1;
+  background-color: #357ab7;
   border-color: #2a88bd;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
-  background-color: #2579a9;
+  background-color: #025aa5;
   border-color: #133d55;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #2579a9;
+  background-color: #025aa5;
   border-color: #1f648b;
 }
 
@@ -6808,7 +6808,7 @@ button.list-group-item-danger.active:focus {
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .panel-body {
@@ -7115,7 +7115,7 @@ button.list-group-item-danger.active:focus {
 
 .panel-primary > .panel-heading {
   color: #fff;
-  background-color: #3097D1;
+  background-color: #357ab7;
   border-color: #3097D1;
 }
 

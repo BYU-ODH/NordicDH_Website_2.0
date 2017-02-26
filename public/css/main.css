@@ -229,6 +229,11 @@
 	}
 }
 
+.jumbotron-default-background
+{
+	background-color: #f5f8fa;
+}
+
 .nav .navbar-social > a 
 {
     padding:0;
