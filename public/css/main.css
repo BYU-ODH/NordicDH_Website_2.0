@@ -170,6 +170,11 @@
 	color: #636b6f;
 }
 
+.filter
+{
+  display: none;
+}
+
 .light-grey-text
 {
 	color: #999999;
@@ -227,6 +232,11 @@
 	{
 		width: 100%;
 	}
+}
+
+.mix
+{
+  display: none;
 }
 
 .jumbotron-default-background

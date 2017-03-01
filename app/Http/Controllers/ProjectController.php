@@ -26,7 +26,7 @@ class ProjectController extends Controller
         switch ($project_id) 
         {
             case 1:
-                self::getLagerlofProject($parameters);
+                $parameters = self::getLagerlofProject($parameters);
                 break;
             case 2:
                 break;
@@ -46,5 +46,7 @@ class ProjectController extends Controller
         $parameters['chunks'] = LagerlofChunks::all();
         $parameters['images'] = LagerlofImages::all();
         $parameters['words'] = LagerlofWords::all();
+
+        return $parameters;
     }
 }

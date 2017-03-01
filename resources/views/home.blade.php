@@ -25,66 +25,66 @@
           			@else
           				<div class="item">
           			@endif
-	          				<div class="card-container col-md-3 col-sm-12">
-	          					<div class="card">
-				             		<div class="front">
-				                 		<div class="cover">
-				                     		<img src="../images/card-header.png"/>
-				                 		</div>
-				                 		<div class="user">
-				                     		<img class="img-circle" src="{{ $project->image_path }}"/>
-				                 		</div>
-				                 		<div class="content">
-				                     		<div class="main">
-				                         		<h3 class="name">
-				                         			{{ $project->project_name }}
-				                         		</h3>
-				                     			<p class="profession">
-				                     				{{ $project->project_description }}
-				                     			</p>
-				                     		</div>
-				                     		<div class="footer">
-				                         		<div class="rating">
-				                             		Last Updated: {{ substr($project->last_update, 5, 2) . "/" . substr($project->last_update, 8, 2) . "/" . 
-				                             		substr($project->last_update, 0, 4) }}
-				                         		</div>
-				                     		</div>
-				                 		</div>
-				             		</div>
-				             		<div class="back">
-				                 		<div class="header">
-				                     		<h5 class="motto">
-				                     			{{ $project->project_name }}
-				                     		</h5>
-				                 		</div>
-				                 		<div class="content">
-				                     		<div class="main">
-				                         		<h4 class="text-center">
-				                         			Click here to view the project.
-				                         		</h4>
-				                         		<div class="text-center">
-				                         			@if ($project->view === null)
-						                         		<button type="button" class="btn btn-lg btn-primary" disabled>
-						                         			Project Page
-						                         		</button>
-						                         	@else 
-						                         		<a class="btn btn-lg btn-primary" href="projects/{{ $project->project_id }}/{{ $project->project_name }}">
-						                         			Project Page
-						                         		</a>
-						                         	@endif
-					                         	</div>
-					                         	<br>
-				                         		<h4 class="text-center">
-				                         			Click here to learn more about the creation of this project.
-				                         		</h4>
-				                         		<div class="text-center">
+          				<div class="card-container col-md-3 col-sm-12">
+          					<div class="card">
+			             		<div class="front">
+			                 		<div class="cover">
+			                     		<img src="../images/card-header.png"/>
+			                 		</div>
+			                 		<div class="user">
+			                     		<img class="img-circle" src="{{ $project->image_path }}"/>
+			                 		</div>
+			                 		<div class="content">
+			                     		<div class="main">
+			                         		<h3 class="name">
+			                         			{{ $project->project_name }}
+			                         		</h3>
+			                     			<p class="profession">
+			                     				{{ $project->project_description }}
+			                     			</p>
+			                     		</div>
+			                     		<div class="footer">
+			                         		<div class="rating">
+			                             		Last Updated: {{ substr($project->last_update, 5, 2) . "/" . substr($project->last_update, 8, 2) . "/" . 
+			                             		substr($project->last_update, 0, 4) }}
+			                         		</div>
+			                     		</div>
+			                 		</div>
+			             		</div>
+			             		<div class="back">
+			                 		<div class="header">
+			                     		<h5 class="motto">
+			                     			{{ $project->project_name }}
+			                     		</h5>
+			                 		</div>
+			                 		<div class="content">
+			                     		<div class="main">
+			                         		<h4 class="text-center">
+			                         			Click here to view the project.
+			                         		</h4>
+			                         		<div class="text-center">
+			                         			@if ($project->view === null)
 					                         		<button type="button" class="btn btn-lg btn-primary" disabled>
-					                         			Project Blog
+					                         			Project Page
 					                         		</button>
-					                         	</div>
-				                     		</div>
-				                 		</div>
-					             	</div>
+					                         	@else 
+					                         		<a class="btn btn-lg btn-primary" href="projects/{{ $project->project_id }}/{{ $project->project_name }}">
+					                         			Project Page
+					                         		</a>
+					                         	@endif
+				                         	</div>
+				                         	<br>
+			                         		<h4 class="text-center">
+			                         			Click here to learn more about the creation of this project.
+			                         		</h4>
+			                         		<div class="text-center">
+				                         		<button type="button" class="btn btn-lg btn-primary" disabled>
+				                         			Project Blog
+				                         		</button>
+				                         	</div>
+			                     		</div>
+			                 		</div>
+				             	</div>
 		     				</div>
 		     			</div>
 	     			</div>
