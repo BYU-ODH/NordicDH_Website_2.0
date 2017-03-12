@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'HomeController@getPage');
-Route::get('projects/{project_id}/{project_name}', 'ProjectController@getIndividualProject');
+Route::get('projects/{project_id}/{project_name}', 'ProjectController@getIndividualProject')->name('individual.project');
 Route::get('coming_soon', 'ComingSoonController@getPage');
 
 /*
