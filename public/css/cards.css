@@ -65,6 +65,7 @@
 .front 
 {
 	z-index: 2;
+    overflow: hidden;
 }
 
 
@@ -75,13 +76,7 @@
     -o-transform: rotateY( 180deg );
     transform: rotateY( 180deg );
     z-index: 3;
-}
-
-.back .btn-simple
-{
-    position: absolute;
-    left: 0;
-    bottom: 4px;
+    overflow: hidden;
 }
 
 
@@ -147,11 +142,6 @@
     min-height: 160px;
 }
 
-.card .back .content .main 
-{
-    height: 215px;
-}
-
 .card .name 
 {
     font-size: 22px;
@@ -178,6 +168,30 @@
     height: 200px;
 }
 
+.card .scatter-plot
+{
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.card .scatter-plot:hover
+{
+    -moz-transform:scale(1.5) translate(0px, 0px);
+    -ms-transform:scale(1.5) translate(0px, 0px);
+    -o-transform:scale(1.5) translate(0px, 0px);
+    -webkit-transform:scale(1.5) translate(0px, 0px);
+    transform:scale(1.5) translate(0px, 0px);
+}
+
 .card .topic
 {
     color: #999999;
@@ -185,7 +199,40 @@
     margin-bottom: 20px;
 }
 
-.card .image
+
+.card .words
+{
+    color: #999999;
+    text-align: center;
+    margin-top: 20px;
+    height: 70px;
+}
+
+.card .chunks
+{
+    color: #999999;
+    text-align: center;
+    margin-top: 20px;
+    height: 210px;
+}
+
+@media (min-width: 768px) and (max-width: 910px)
+{
+    .card .words
+    {
+        height: 50px;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .card .chunks
+    {
+        height: 130px;
+    }
+}
+
+.card .word-cloud
 {
     text-align: center;
     display: block;
@@ -200,14 +247,23 @@
     transition: all 1s ease;
 }
 
-.card .image:hover
+.card .word-cloud:hover
+{
+    -moz-transform:scale(1.5) translate(0px, 0px);
+    -ms-transform:scale(1.5) translate(0px, 0px);
+    -o-transform:scale(1.5) translate(0px, 0px);
+    -webkit-transform:scale(1.5) translate(0px, 0px);
+    transform:scale(1.5) translate(0px, 0px);
+}
+
+@media (min-width: 768px) and (max-width: 869px)
+{
+    .card .word-cloud
     {
-        -moz-transform:scale(2) translate(0px, 0px);
-        -ms-transform:scale(2) translate(0px, 0px);
-        -o-transform:scale(2) translate(0px, 0px);
-        -webkit-transform:scale(2) translate(0px, 0px);
-        transform:scale(2) translate(0px, 0px);
+        width: 150px;
+        height: 150px;
     }
+}
 
 @media (min-width: 768px) and (max-width: 991px)
 {
@@ -217,11 +273,27 @@
     }
 }
 
+@media (min-width: 911px) and (max-width: 1197px)
+{
+    .card .words
+    {
+        height: 50px;
+    }
+}
+
+@media (max-width: 425px)
+{
+    .card .words
+    {
+        height: 50px;
+    }
+}
+
 .card .footer 
 {
     border-top: 1px solid #EEEEEE;
     color: #999999;
-    margin: 30px 0 0;
+    margin: 20px 0 0;
     padding: 5px 0 0;
     text-align: center;
 }
@@ -290,6 +362,16 @@
 .card .stats p
 {
 	color: #777777;
+}
+
+.card .topic-footer 
+{
+    border-top: 1px solid #EEEEEE;
+    color: #999999;
+    margin: 30px 0 0;
+    padding: 5px 0 0;
+    text-align: center;
+    position: fixed;
 }
 
 .title

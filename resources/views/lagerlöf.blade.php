@@ -30,10 +30,10 @@
             @foreach($main as $topic)
                 @if (strpos($topic->chunk_size, 'NA'))
                     <div class="card-container manual-flip col-md-4 col-sm-12 
-                {{substr($topic->chunk_size, 0, 4)}} NA {{$topic->topic_number}}">
+                {{substr($topic->chunk_size, 0, 4)}} NA {{$topic->topic_number}} {{$topic->name}}">
                 @else
                     <div class="card-container manual-flip col-md-4 col-sm-12 
-                {{substr($topic->chunk_size, 0, 4)}} N {{$topic->topic_number}}">
+                {{substr($topic->chunk_size, 0, 4)}} N {{$topic->topic_number}} {{$topic->name}}">
                 @endif
                     <div class="card">
                         <div class="front">
@@ -50,6 +50,7 @@
                                         @endif
                                     </h3>
                                     <p class="topic">
+                                        <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
                                         {{substr($topic->chunk_size, 0, 4) . ' Word Chunks'}}
                                         @if (strpos($topic->chunk_size, 'NA'))
                                             {{'(Nouns and Adjectives), '}}
@@ -57,23 +58,91 @@
                                             {{'(Nouns), '}}
                                         @endif
                                         {{$topic->topic_id . '/' . $topic->topic_number}}
+                                        </a>
                                     </p>
-                                    <div class="image">
+                                    <div class="word-cloud">
                                         <img src="../../images/lagerlöf/{{$images->where('global_id', $topic->global_id)->first()->word_cloud}}" alt="Word Cloud">
                                     </div>
+                                    <p class="words">
+                                    @php
+                                        $word_list = $words->where('global_id', $topic->global_id)->pluck('word');
+                                        $words_size = count($word_list);
+                                    @endphp
+                                    @foreach($word_list as $word)
+                                        @if($word_list[$words_size -1] != $word)
+                                            {{$word}},
+                                        @else
+                                            {{$word}}
+                                        @endif
+                                    @endforeach
+                                    </p>
                                 </div>
                                 <div class="footer">
+                                    <button class="btn btn-simple" onclick="rotateCard(this)">
+                                        Click to Rotate
+                                        <span class="glyphicon glyphicon-share-alt">
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <div class="back">
                             <div class="header">
                                 <h5 class="motto">
+                                    <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
+                                        {{substr($topic->chunk_size, 0, 4) . ' Word Chunks'}}
+                                        @if (strpos($topic->chunk_size, 'NA'))
+                                            {{'(Nouns and Adjectives), '}}
+                                        @else
+                                            {{'(Nouns), '}}
+                                        @endif
+                                        {{$topic->topic_id . '/' . $topic->topic_number}}
+                                    </a>
                                 </h5>
                             </div>
                             <div class="content">
                                 <div class="main">
-                                    
+                                    <div class="scatter-plot">
+                                        <img src="../../images/lagerlöf/{{$images->where('global_id', $topic->global_id)->first()->scatterplot}}" alt="Scatter Plot">
+                                    </div>
+                                    <p class="chunks">
+                                        @php
+                                            $chunk_list = $chunks->where('global_id', $topic->global_id)->pluck('name');
+                                            $chunks_size = count($chunk_list);
+                                        @endphp
+                                        @foreach($chunk_list as $path)
+                                                @php
+                                                    $chunk = $path;
+                                                    $chunk = str_replace("_", " ", $chunk);
+                                                    $chunk = str_replace("./", "", $chunk);
+                                                    $chunk = str_replace(".txt", "", $chunk);
+                                                    $chunk = str_replace("LagerlofS", "", $chunk);
+                                                    $chunk = str_replace("of", " of ", $chunk);
+                                                    $chunk = preg_replace("/\d{4}/", "", $chunk);
+                                                    $chunk = str_replace("Gosta Berlings Saga", "Gösta Berlings Saga", $chunk);
+                                                    $chunk = str_replace("Osynliga Lankar", "Osynliga Länkar", $chunk);
+                                                    $chunk = str_replace("Korkarlen", "Körkarlen", $chunk);
+                                                    $chunk = str_replace("Troll Och Mann", "Troll Och Männ", $chunk);
+                                                    $chunk = str_replace("Marbacka", "Mårbacka", $chunk);
+                                                    $chunk = str_replace("Lowenskoldska R", "Löwensköldska", $chunk);
+                                                    $chunk = str_replace("Charlotte Lowenskold", "Charlotte Löwensköld", $chunk);
+                                                    $chunk = str_replace("Anna Svard", "Anna Svärd", $chunk);
+                                                    $chunk = str_replace("Fran Skilda Tider", "Från Skilda Tider", $chunk);
+                                                @endphp
+                                            @if($chunk_list[$chunks_size - 1] != $path)
+                                                {{$chunk}},
+                                            @else
+                                                {{$chunk}}
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                </div>
+                                <div class="footer">
+                                    <button class="btn btn-simple" onclick="rotateCard(this)">
+                                        Click to Rotate
+                                        <span class="glyphicon glyphicon-share-alt">
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -86,17 +155,16 @@
         </section>
         <div class="cd-filter">
             <form id="filters">
-                <div class="cd-filter-block">
+                <!--<div class="cd-filter-block">
                     <h4>Search</h4>                   
                     <div class="cd-filter-content">
                         <input type="search" placeholder="Search Topics ...">
                     </div> 
-                </div>
+                </div>-->
                 <div class="cd-filter-block">
                     <h4>Chunk Size</h4>
                     <ul class="cd-filter-content cd-filters list">
                     @php
-
                         $topic_number = request('topic_number');
                         $chunk_size = request('chunk_size');
                         $part_of_speech = request('part_of_speech');
@@ -208,6 +276,14 @@
         $(document).ready(function()
         {
             $(".name").dotdotdot({
+                watch: true
+            });
+
+            $(".words").dotdotdot({
+                watch: true
+            });
+
+            $(".chunks").dotdotdot({
                 watch: true
             });
         });

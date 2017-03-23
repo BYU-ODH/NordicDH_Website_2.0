@@ -4,6 +4,18 @@
 	margin-top: 100px;
 }
 
+.gray-link
+{
+  color: #999999;
+  cursor: pointer;
+}
+
+.gray-link:hover
+{
+  color: #000000;
+  text-decoration: none;
+}
+
 .backdrop
 {
     background-color: black;
@@ -173,6 +185,18 @@
 .filter
 {
   display: none;
+}
+
+.passage-viewer
+{
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.individual-image
+{
+  margin: 5px;
 }
 
 .light-grey-text
@@ -349,7 +373,6 @@
 	border-top: 2px ridge #001948;
 }
 
-
 @media (min-width: 1000px)
 {
 	#searchbox
@@ -392,6 +415,19 @@
 	}
 }
 
+.relevant-passages
+{
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+  font-size: 20px;
+}
+
+.top-margin-sm
+{
+  margin-top: 10;
+}
+
 ul 
 {
     list-style:none;
@@ -401,6 +437,13 @@ ul
 .unbulleted-list
 {
 	list-style-type: none;
+}
+
+.visualizations
+{
+  width: 100%;
+  height: 765px;
+  overflow-y: scroll;
 }
 
 .white-text
