@@ -47,7 +47,7 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbar">
                     <form class="nav navbar-nav navbar-right" id="searchbox" autocomplete="off">
-                        <input name="q" type="text" size="15" placeholder="search projects"/>
+                        <input name="search" type="text" size="15" placeholder="search projects"/>
                         <input id="button-submit" type="submit" value=""/>
                     </form>
                     <ul class="nav navbar-nav navbar-right">

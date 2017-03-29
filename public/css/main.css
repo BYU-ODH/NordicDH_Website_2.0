@@ -4,24 +4,17 @@
 	margin-top: 100px;
 }
 
-.gray-link
-{
-  color: #999999;
-  cursor: pointer;
-}
-
-.gray-link:hover
-{
-  color: #000000;
-  text-decoration: none;
-}
-
 .backdrop
 {
     background-color: black;
     z-index: 0;
     opacity: 0.5;
     padding: 10px;
+}
+
+.bottom-margin-sm
+{
+  margin-bottom: 10px;
 }
 
 @media (min-width: 1000px)
@@ -175,6 +168,25 @@
             transform: translate3d(0, 0, 0);
     left: 0;
   }
+}
+
+.form-center
+{
+    display:block;
+    width:50%;
+    margin:0 auto;
+}
+
+.gray-link
+{
+  color: #999999;
+  cursor: pointer;
+}
+
+.gray-link:hover
+{
+  color: #000000;
+  text-decoration: none;
 }
 
 .grey-text

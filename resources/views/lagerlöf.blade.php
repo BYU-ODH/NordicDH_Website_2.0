@@ -69,11 +69,13 @@
                                         $words_size = count($word_list);
                                     @endphp
                                     @foreach($word_list as $word)
+                                        <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$word}}/{{str_replace('/', '-', $topic->global_id)}}">
                                         @if($word_list[$words_size -1] != $word)
                                             {{$word}},
                                         @else
                                             {{$word}}
                                         @endif
+                                        </a>
                                     @endforeach
                                     </p>
                                 </div>

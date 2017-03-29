@@ -1,6 +1,6 @@
 @extends('layouts.general')
 
-@section('title', 'Lagerlöf')
+@section('title', 'Lagerlöf Individual Topic')
 @section('stylesheets')
     <link rel="stylesheet" type="text/css" href="/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -59,7 +59,11 @@
                 <tbody class="text-center">
                     @foreach($words as $word)
                         <tr>
-                            <td>{{$word->word}}</td>
+                            <td>
+                                <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$word->word}}/{{str_replace('/', '-', $main->global_id)}}">
+                                    {{$word->word}}
+                                </a>
+                            </td>
                             <td>{{$word->rank}}</td>
                             <td>{{$word->weight}}</td>
                         </tr>
@@ -100,14 +104,14 @@
                     <div id="passage-viewer">
                     </div>
                     <div class="text-center top-margin-sm">
-                        <button class="btn btn-default btn-sm hidden" id="passage-viewer-clear" onclick="clearViewer()">
+                        <button class="btn btn-default btn-sm top-margin-sm hidden" id="passage-viewer-clear" onclick="clearViewer()">
                             Clear
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center">
+        <div class="text-center bottom-margin-sm">
             <button class="btn btn-default btn-lg" onclick="back()">
                 Return to Topics
             </button>
@@ -262,7 +266,7 @@
 
         function back() 
         {
-            if (document.referrer == "") 
+            if (document.referrer == "" || document.referrer.includes("word_comparison")) 
             {
                 window.location.href = '/projects/1/Selma Lagerlöf Project';
             } 
