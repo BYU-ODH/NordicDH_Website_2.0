@@ -435,6 +435,22 @@
   font-size: 20px;
 }
 
+text
+{
+  cursor: pointer;
+}
+
+text:hover
+{
+  color: #000000;
+  text-decoration: underline;
+}
+
+rect
+{
+  cursor: pointer;
+}
+
 .top-margin-sm
 {
   margin-top: 10;
