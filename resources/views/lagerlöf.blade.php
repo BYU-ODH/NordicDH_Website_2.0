@@ -67,9 +67,23 @@
                                     @php
                                         $word_list = $words->where('global_id', $topic->global_id)->pluck('word');
                                         $words_size = count($word_list);
+                                        $chunk_size = substr($topic->chunk_size, 0, 4);
+                                        $part_of_speech = '';
+
+                                        if(strpos($topic->chunk_size, 'NA'))
+                                        {
+                                            $part_of_speech = 'NA';
+                                        }
+
+                                        else
+                                        {
+                                            $part_of_speech = 'N';
+                                        }
+
+                                        $topic_number = $topic->topic_number;
                                     @endphp
                                     @foreach($word_list as $word)
-                                        <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$word}}/{{str_replace('/', '-', $topic->global_id)}}">
+                                        <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word}}">
                                         @if($word_list[$words_size -1] != $word)
                                             {{$word}},
                                         @else

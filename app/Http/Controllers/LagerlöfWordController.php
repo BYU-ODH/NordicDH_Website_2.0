@@ -11,12 +11,14 @@ use App\LagerlofWords;
 
 class LagerlöfWordController extends Controller
 {
-    public function getWordWithTopic($word, $topic_id)
+    public function getWordComparison($chunk_size, $part_of_speech, $topic_number, $word)
     {
-    	$topic_id = str_replace("-", "/", $topic_id);
+    	$topic_id = "L_" . $chunk_size . $part_of_speech . "_1/" . $topic_number;
     	$parameters = [];
     	$parameters['word'] = $word;
-    	$parameters['topic_id'] = $topic_id;
+    	$parameters['chunk_size'] = $chunk_size;
+        $parameters['part_of_speech'] = $part_of_speech;
+        $parameters['topic_number'] = $topic_number;
     	$parameters['links'] = Link::all();
     	$parameters['main'] = LagerlofMain::where('global_id', $topic_id)->first();
 

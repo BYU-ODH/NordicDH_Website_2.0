@@ -169,7 +169,7 @@
 	              	})
 	              	.on("click", function (d) 
 	              	{
-	                	window.location = "/projects/1/Selma Lagerlöf Project/word_comparison/" + d.word + "/{{str_replace('/', '-', $main->global_id)}}";
+	                	window.location = "/projects/1/Selma Lagerlöf Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/" + d.word;
 	              	})
 			        .attr("width", bar_width)
 			        .attr("x", function (d, i) { return bar_width*i + bar_space*i; })
@@ -223,7 +223,7 @@
 	              	})
 	              	.on("click", function (d) 
 	              	{
-	                	window.location = "/projects/1/Selma Lagerlöf Project/word_comparison/" + d.word + "/{{str_replace('/', '-', $main->global_id)}}";
+	                	window.location = "/projects/1/Selma Lagerlöf Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/" + d.word;
 	              	});
 	        });
 		};

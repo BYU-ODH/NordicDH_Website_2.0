@@ -60,7 +60,23 @@
                     @foreach($words as $word)
                         <tr>
                             <td>
-                                <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$word->word}}/{{str_replace('/', '-', $main->global_id)}}">
+                                @php
+                                    $chunk_size = substr($main->where('global_id', $main->global_id)->first()->chunk_size, 0, 4);
+                                    $part_of_speech = '';
+
+                                    if(strpos($main->where('global_id', $main->global_id)->first()->chunk_size, 'NA'))
+                                    {
+                                        $part_of_speech = 'NA';
+                                    }
+
+                                    else
+                                    {
+                                        $part_of_speech = 'N';
+                                    }
+
+                                    $topic_number = $main->where('global_id', $main->global_id)->first()->topic_number;
+                                @endphp
+                                <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word->word}}">
                                     {{$word->word}}
                                 </a>
                             </td>
