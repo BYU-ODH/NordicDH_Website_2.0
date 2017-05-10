@@ -19,7 +19,6 @@ class LagerlöfWordController extends Controller
     	$parameters['chunk_size'] = $chunk_size;
         $parameters['part_of_speech'] = $part_of_speech;
         $parameters['topic_number'] = $topic_number;
-    	$parameters['links'] = Link::all();
     	$parameters['main'] = LagerlofMain::where('global_id', $topic_id)->first();
 
     	//$topics = LagerlofWords::where('word', $word)->get();

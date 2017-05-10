@@ -1,7 +1,12 @@
 /*! Main CSS */
-.after_navbar
+.after-navbar
 {
 	margin-top: 100px;
+}
+
+.after-navbar-lg
+{
+  margin-top: 150px;
 }
 
 .backdrop
@@ -216,6 +221,17 @@
 	color: #999999;
 }
 
+.login-img
+{
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
 #main-jumbotron-link
 {
 	color: white;
@@ -385,6 +401,27 @@
 	border-top: 2px ridge #001948;
 }
 
+.no-padding
+{
+  padding: 0px;
+}
+
+.no-margin
+{
+  margin: 0px;
+}
+
+.pointer
+{
+  cursor: pointer;
+}
+
+.side-padding-sm
+{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 @media (min-width: 1000px)
 {
 	#searchbox
@@ -435,6 +472,12 @@
   font-size: 20px;
 }
 
+.side-margin-sm
+{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 text
 {
   cursor: pointer;
@@ -449,6 +492,11 @@ text:hover
 rect
 {
   cursor: pointer;
+}
+
+.table .td-borderless
+{
+  border-top: none;
 }
 
 .top-margin-sm
@@ -477,4 +525,10 @@ ul
 .white-text
 {
 	color: #ffffff;
+}
+
+.jumbotron-white-background
+{
+  background: #ffffff;
+  margin-bottom: 0px;
 }

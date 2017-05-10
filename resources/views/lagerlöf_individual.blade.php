@@ -10,9 +10,9 @@
 
 @section('content')
 
-    <div class="jumbotron jumbotron-default-background after_navbar">
+    <div class="jumbotron jumbotron-default-background after-navbar">
         <div class="container text-center">
-            <h1>
+            <h1 id="individual-header">
                 {{substr($main->chunk_size, 0, 4) . ' Word Chunks'}}
                 @if(strpos($main->chunk_size, 'NA'))
                     {{'(Nouns and Adjectives), '}}
@@ -21,11 +21,23 @@
                 @endif
                 {{$main->topic_id . '/' . $main->topic_number}}
             </h1>
-            @if($main->topic_name != "")
-                <h2>
-                    {{$main->topic_name}}
-                </h2>
-            @endif
+            <div class="col-sm-3 col-xs-12">
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                @if($main->topic_name != "")
+                    <h2 @if(Auth::check()) id="{{$main->global_id}}" class="pointer no-margin" onclick="showInput(this)" @endif>
+                        {{$main->topic_name}}
+                    </h2>
+                @else
+                    @if(Auth::check())
+                        <button id="{{$main->global_id}}" class="btn btn-default btn-lg" onclick="showInput(this)">
+                            Add a Topic Name
+                        </button>
+                    @endif
+                @endif
+            </div>
+            <div class="col-sm-3 col-xs-12">
+            </div>
         </div>
     </div>
     <div class="container-fluid">
@@ -128,7 +140,7 @@
             </div>
         </div>
         <div class="text-center bottom-margin-sm">
-            <button class="btn btn-default btn-lg" onclick="back()">
+            <button class="btn btn-default btn-lg" onclick="toTopics()">
                 Return to Topics
             </button>
         </div>
@@ -145,6 +157,40 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js">
     </script>
     <script type="text/javascript">
+        var elements = {};
+
+        function showInput(object)
+        {
+            var parent = object.parentNode;
+            var text = object.innerHTML;
+
+            elements[object.id] = object.outerHTML;
+            object.remove();
+
+            var csrf_field = '{{ csrf_field() }}'
+            csrf_field.replace(/"/g, "'");
+
+            if(text.trim() == "Add a Topic Name")
+            {
+                $(parent).append("<div id='Restore" + object.id + "' class='side-margin-sm'><form class='form-horizontal' role='form' method='POST' action='/projects/1/Selma Lagerlöf Project/sql_update/" + object.id.replace("/", "-") + "'>" + csrf_field + "<div class='form-group'><div class='input-group'><span id='" + object.id + "' class='input-group-addon' onclick='restore(this)'><i class='glyphicon glyphicon-remove'></i></span><input name='name' type='text' class='form-control' placeholder='Enter Name Here'><span class='input-group-btn'><button class='btn btn-primary' type='submit'>Submit</button></span></div></div></form></div>");
+            }
+        
+            else
+            {
+                $(parent).append("<div id='Restore" + object.id + "' class='side-margin-sm'><form class='form-horizontal' role='form' method='POST' action='/projects/1/Selma Lagerlöf Project/sql_update/" + object.id.replace("/", "-") + "'>" + csrf_field + "<div class='form-group'><div class='input-group'><span id='" + object.id + "' class='input-group-addon' onclick='restore(this)'><i class='glyphicon glyphicon-remove'></i></span><input name='name' type='text' class='form-control' placeholder='" + text.trim() + "'><span class='input-group-btn'><button class='btn btn-primary' type='submit'>Submit</button></span></div></div></form></div>");
+            }
+        };
+
+        function restore(object)
+        {
+            var restore_element = elements[object.id];
+            var replace_element = document.getElementById("Restore" + object.id);
+            var parent = replace_element.parentNode;
+
+            replace_element.remove();
+            $(parent).append(restore_element);
+        };
+
         $(document).ready(function()
         {
             var pie_charts = document.getElementsByClassName("pie-chart");
@@ -280,17 +326,22 @@
             document.getElementById("passage-viewer").innerHTML = ""; 
         }
 
-        function back() 
+        function toTopics() 
         {
-            if (document.referrer == "" || document.referrer.includes("word_comparison")) 
-            {
-                window.location.href = '/projects/1/Selma Lagerlöf Project';
-            } 
+            var part_of_speech;
 
-            else 
+            if(document.getElementById("individual-header").innerHTML.includes('NA'))
             {
-                window.history.back();
+                part_of_speech = 'NA';
             }
+
+            else
+            {
+                part_of_speech = 'N';
+            }
+
+            window.location.href = '/projects/1/Selma Lagerlöf Project?chunk_size={{substr($main->chunk_size, 0, 4)}}&topic_number={{$main->topic_number}}&part_of_speech=' + part_of_speech;
+
         }
     </script>
 @endsection

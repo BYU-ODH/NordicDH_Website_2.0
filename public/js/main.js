@@ -86,7 +86,7 @@ jQuery(document).ready(function($){
 
 	//search filtering
 	//credits http://codepen.io/edprats/pen/pzAdg
-	var inputText;
+	/*var inputText;
 	var $matching = $();
 
 	var delay = (function(){
@@ -119,8 +119,9 @@ jQuery(document).ready(function($){
 	      		// resets the filter to show all item if input is empty
 	      		$('.cd-gallery ul').mixItUp('filter', 'all');
 	    	}
+	    	var $search = $(this);
 	  	}, 200 );
-	});
+	});*/
 });
 
 /*****************************************************

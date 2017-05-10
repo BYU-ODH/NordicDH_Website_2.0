@@ -20,7 +20,6 @@ class ProjectController extends Controller
     public function getIndividualProject($project_id)
     {
         $parameters = [];
-        $parameters['links'] = Link::all();
     	$parameters['project'] = Project::where("project_id", $project_id)->first();
 
         switch ($project_id) 

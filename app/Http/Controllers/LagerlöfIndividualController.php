@@ -15,7 +15,6 @@ class LagerlöfIndividualController extends Controller
     {
     	$topic_id = str_replace("-", "/", $topic_id);
     	$parameters = [];
-    	$parameters['links'] = Link::all();
     	$parameters['main'] = LagerlofMain::where('global_id', $topic_id)->first();
     	$parameters['chunk_links'] = LagerlofChunks::where('global_id', $topic_id)->get();
     	$parameters['chunk_names'] = LagerlofChunks::where('global_id', $topic_id)->orderBy('rank', 'asc')->get();

@@ -13,7 +13,6 @@ class HomeController extends Controller
     	
     	$parameters = [];
     	$parameters['projects'] = Project::all();
-    	$parameters['links'] = Link::all();
     	
 
     	return view('home', $parameters);

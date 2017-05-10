@@ -10,8 +10,7 @@
 @endsection
 
 @section('content')
-<!--===== PAGE SETUP =====-->
-    <header class="cd-header after_navbar text-center">
+    <header class="cd-header after-navbar text-center">
         <div class="col-md-8 offset-md-2 col-sm-12">
             <h3>
                 Topic modeling uses statistical algorithms to discover the latent semantic structures in an extensive text body. This project focuses on the work of a single author, Selma Lagerlöf, to test the uses and limits of topic modeling. All of the topic models generated from this research are listed below. For your convenience we have included filters to help you find the topics you're looking for.
@@ -26,7 +25,7 @@
         <div class="text-center">
             {{$main->links()}}
         </div>
-       <section class="cd-gallery">
+        <section class="cd-gallery">
             @foreach($main as $topic)
                 @if (strpos($topic->chunk_size, 'NA'))
                     <div class="card-container manual-flip col-md-4 col-sm-12 
@@ -42,13 +41,15 @@
                             </div>
                             <div class="content">
                                 <div class="main">
-                                    <h3 class="name">
-                                        @if($topic->topic_name != " " && $topic->topic_name != null)
-                                            {{ $topic->topic_name }}
-                                        @else
-                                            To Be Determined
-                                        @endif
-                                    </h3>
+                                    <div>
+                                        <h3 class="name" @if(Auth::check()) id="{{$topic->global_id}}"onclick="showInput(this)" @endif>
+                                            @if($topic->topic_name != " " && $topic->topic_name != null)
+                                                {{ $topic->topic_name }}
+                                            @else
+                                                To Be Determined
+                                            @endif
+                                        </h3>
+                                    </div>
                                     <p class="topic">
                                         <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
                                         {{substr($topic->chunk_size, 0, 4) . ' Word Chunks'}}
@@ -289,6 +290,7 @@
     <script type="text/javascript" src="/dotdotdot/src/jquery.dotdotdot.js">
     </script>
     <script type="text/javascript">
+        var elements = {};
         $(document).ready(function()
         {
             $(".name").dotdotdot({
@@ -318,5 +320,37 @@
                 $card.addClass('hover');
             }
         }
+
+        function showInput(object)
+        {
+            var parent = object.parentNode;
+            var text = object.innerHTML;
+
+            elements[object.id] = object.outerHTML;
+            object.remove();
+
+            var csrf_field = '{{ csrf_field() }}'
+            csrf_field.replace(/"/g, "'");
+
+            if(text.trim() == "To Be Determined")
+            {
+                $(parent).append("<div id='Restore" + object.id + "' class='side-margin-sm'><form class='form-horizontal' role='form' method='POST' action='/projects/1/Selma Lagerlöf Project/sql_update/" + object.id.replace("/", "-") + "'>" + csrf_field + "<div class='form-group'><div class='input-group'><span id='" + object.id + "' class='input-group-addon' onclick='restore(this)'><i class='glyphicon glyphicon-remove'></i></span><input name='name' type='text' class='form-control' placeholder='Enter Name Here'><span class='input-group-btn'><button class='btn btn-primary' type='submit'>Submit</button></span></div></div></form></div>");
+            }
+        
+            else
+            {
+                $(parent).append("<div id='Restore" + object.id + "' class='side-margin-sm'><form class='form-horizontal' role='form' method='POST' action='/projects/1/Selma Lagerlöf Project/sql_update/" + object.id.replace("/", "-") + "'>" + csrf_field + "<div class='form-group'><div class='input-group'><span id='" + object.id + "' class='input-group-addon' onclick='restore(this)'><i class='glyphicon glyphicon-remove'></i></span><input name='name' type='text' class='form-control' placeholder='" + text.trim() + "'><span class='input-group-btn'><button class='btn btn-primary' type='submit'>Submit</button></span></div></div></form></div>");
+            }
+        };
+
+        function restore(object)
+        {
+            var restore_element = elements[object.id];
+            var replace_element = document.getElementById("Restore" + object.id);
+            var parent = replace_element.parentNode;
+
+            replace_element.remove();
+            $(parent).append(restore_element);
+        };
     </script>
 @endsection

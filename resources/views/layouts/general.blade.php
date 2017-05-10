@@ -81,6 +81,9 @@
                     <h4>
                         Site
                     </h4>
+                    @php
+                        $links = App\Link::all();
+                    @endphp
                     <ul>
                         @foreach($links as $link)
                             @if($link->link_category == "site")
@@ -100,11 +103,23 @@
                     <ul>
                         @foreach($links as $link)
                             @if($link->link_category == "administrator_tools")
-                                <li>
-                                    <a href="{{$link->link_url}}" class="light-grey-text">
-                                        {{$link->link_text}}
-                                    </a>
-                                </li>
+                                @if(Auth::check())
+                                    @if($link->admin_only)
+                                        <li>
+                                            <a href="{{$link->link_url}}" class="light-grey-text">
+                                                {{$link->link_text}}
+                                            </a>
+                                        </li>
+                                    @endif
+                                @else
+                                    @if(!$link->admin_only)
+                                        <li>
+                                            <a href="{{$link->link_url}}" class="light-grey-text">
+                                                {{$link->link_text}}
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endif
                             @endif
                         @endforeach
                     </ul>
