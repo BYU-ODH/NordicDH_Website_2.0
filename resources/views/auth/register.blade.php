@@ -23,9 +23,7 @@
                                 <div class="col-sm-1 col-xs-12">
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
-                                    <label for="first_name" class="control-label text-left">
-                                        First Name
-                                    </label>
+                                    <label for="first_name" class="control-label text-left">First Name</label>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
                                     <input id="first_name" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autofocus>
@@ -63,9 +61,7 @@
                                 <div class="col-sm-1 col-xs-12">
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
-                                    <label for="email" class="control-label text-left">
-                                        E-Mail
-                                    </label>
+                                    <label for="email" class="control-label text-left">E-Mail</label>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
                                     <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -84,9 +80,7 @@
                                 <div class="col-sm-1 col-xs-12">
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
-                                    <label for="password" class="control-label text-left">
-                                        Password
-                                    </label>
+                                    <label for="password" class="control-label text-left">Password</label>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
                                     <input id="password" type="password" class="form-control" name="password" required>
@@ -105,9 +99,7 @@
                                 <div class="col-sm-1 col-xs-12">
                                 </div>
                                 <div class="col-sm-3 col-xs-12">
-                                    <label for="password-confirm" class="control-label text-left">
-                                        Confirm Password
-                                    </label>
+                                    <label for="password-confirm" class="control-label text-left">Confirm Password</label>
                                 </div>
                                 <div class="col-sm-7 col-xs-12">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
@@ -119,9 +111,7 @@
                                 <div class="col-sm-5 col-xs-12">
                                 </div>
                                 <div class="col-sm-5 col-xs-12">
-                                    <button type="submit" class="btn btn-primary btn-block">
-                                        Submit
-                                    </button>
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                                 </div>
                                 <div class="col-sm-2 col-xs-12">
                                 </div>
