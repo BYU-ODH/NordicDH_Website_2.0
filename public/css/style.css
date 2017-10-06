@@ -1,4 +1,4 @@
-checkbox-label/* -------------------------------- 
+checkbox-label/* --------------------------------
 
 Primary style
 
@@ -18,14 +18,15 @@ html * {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main Components 
+Main Components
 
 -------------------------------- */
 .cd-header {
   height: 200px;
   background-color: #ffffff;
+  padding-top: 5px;
 }
 
 @media only screen and (max-width: 1141px) {
@@ -37,6 +38,19 @@ Main Components
 @media only screen and (max-width: 997px) {
   .cd-header h3 {
     font-size: 1.3em;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .cd-header h3 {
+  }
+}
+
+@media only screen and (max-width: 400px)
+{
+  .cd-header h3
+  {
+    font-size: 1em;
   }
 }
 
@@ -82,9 +96,9 @@ Main Components
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xtab-filter 
+xtab-filter
 
 -------------------------------- */
 .cd-tab-filter-wrapper {
@@ -237,9 +251,9 @@ xtab-filter
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xgallery 
+xgallery
 
 -------------------------------- */
 .cd-gallery {
@@ -299,9 +313,9 @@ xgallery
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xfilter 
+xfilter
 
 -------------------------------- */
 .cd-filter {
@@ -425,9 +439,9 @@ xfilter
   }
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-xcustom form elements 
+xcustom form elements
 
 -------------------------------- */
 .cd-filter-block {

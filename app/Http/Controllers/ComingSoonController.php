@@ -9,6 +9,6 @@ class ComingSoonController extends Controller
 {
 	public function getPage()
 	{
-    	return view('coming_soon');
-    }
+  	return view('coming_soon');
+  }
 }

@@ -18,8 +18,13 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 
-/*Route::get('projects')*/
 Route::get('/projects/{project_id}/{project_name}', 'ProjectController@getIndividualProject')->name('individual.project');
+Route::get('/projects', 'ProjectController@getAllProjects');
+Route::get('/blogs/{project_id}/{project_name}', 'BlogController@getIndividualBlog')->name('individual.blog');
+Route::get('/blogs/{project_id}/{project_name}/{blog_entry}', 'BlogController@getIndividualBlogPost');
+Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}', 'SQLUpdateController@getBlogPost');
+Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}/{blog_entry}', 'SQLUpdateController@getBlogUpdate');
+Route::get('/blogs/{project_id}/{project_name}/sql_delete/{blog_entry}', 'SQLUpdateController@deleteBlogPost');
 
 /*
 |--------------------------------------------------------------------------

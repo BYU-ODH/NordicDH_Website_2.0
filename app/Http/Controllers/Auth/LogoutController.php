@@ -10,12 +10,11 @@ use DB;
 
 class LogoutController extends Controller
 {
-    
-    public function logout()
-    {
-        Auth::logout();
-        Session::flush();
+  public function logout()
+  {
+    Auth::logout();
+    Session::flush();
 
-        return redirect()->back();
-    }
+    return redirect()->back();
+  }
 }
