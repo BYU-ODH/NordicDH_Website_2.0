@@ -2,14 +2,14 @@
 
 @section('title', 'Lagerlöf Individual Topic')
 @section('stylesheets')
-  <link rel="stylesheet" type="text/css" href="/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/lagerlöf.css">
 @endsection
 
 @section('content')
-  <div class="jumbotron jumbotron-default-background after-navbar">
+  <div class="jumbotron jumbotron-default-background navbar-margin">
     <div class="container text-center">
       <h1 id="individual-header">
         {{substr($main->chunk_size, 0, 4) . ' Word Chunks'}}
@@ -23,7 +23,7 @@
       <div class="col-sm-3 col-xs-12"></div>
       <div class="col-sm-6 col-xs-12">
         @if($main->topic_name != "")
-          <h2 @if(Auth::check()) id="{{$main->global_id}}" class="pointer no-margin" onclick="showInput(this)" @endif>
+          <h2 class="pointer no-margin" @if(Auth::check()) id="{{$main->global_id}}" onclick="showInput(this)" @endif>
             {{$main->topic_name}}
           </h2>
         @else
@@ -82,7 +82,7 @@
                   }
                   $topic_number = $main->where('global_id', $main->global_id)->first()->topic_number;
                 @endphp
-                <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word->word}}">
+                <a class="grey-text" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word->word}}">
                   {{$word->word}}
                 </a>
               </td>
@@ -107,7 +107,7 @@
                     <div class="pie-chart" data-weight-1="{{$name->weight}}" data-weight-2="{{1 - $name->weight}}"></div>
                   </td>
                   <td class="align-middle">
-                    <a data-passage-path="{{substr($chunk_links->where('global_id', $name->global_id)->where('rank', $name->rank)->first()->name, 1)}}" data-chunk-size="{{$main->chunk_size}}" onclick="getPassage(this)">
+                    <a class="grey-text" data-passage-path="{{substr($chunk_links->where('global_id', $name->global_id)->where('rank', $name->rank)->first()->name, 1)}}" data-chunk-size="{{$main->chunk_size}}" onclick="getPassage(this)">
                       {{$name->name}}
                     </a>
                   </td>

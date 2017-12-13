@@ -5,11 +5,12 @@
   <link rel="stylesheet" type="text/css" href="/css/app.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="stylesheet" type="text/css" href="/css/cards.css">
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
 @endsection
 
 @section('content')
   <!--===== JUMBOTRON =====-->
-  <div class="jumbotron" id="main-jumbotron">
+  <div class="jumbotron navbar-margin" id="main-jumbotron">
     <div class="container">
 	   	<p id="main-jumbotron-text">
 	    	The Nordic Digital Humanities Lab hosts a variety of projects researched by faculty and students at Brigham Young University using various computational tools and visualization technologies to explore Nordic literature, art, media, and cultures in new ways. Feel free to browse the projects featured below or click <a href="coming_soon" id="main-jumbotron-link"><u>here</u></a> for more options.

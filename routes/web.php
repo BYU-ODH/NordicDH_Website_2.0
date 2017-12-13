@@ -8,9 +8,24 @@
 
 Route::get('/', 'HomeController@getPage');
 Route::get('/home', 'HomeController@getPage');
-Route::get('/coming_soon', 'ComingSoonController@getPage');
+Route::get('/coming_soon', 'GeneralController@getComingSoonPage');
+Route::get('/contact', ['as' => 'contact', 'uses' => 'ContactController@create']);
+Route::post('/contact', ['as' => 'contact_store', 'uses' => 'ContactController@store']);
+Route::get('/downloads', 'GeneralController@getSoftwareDownloadPage');
 Route::get('/logout', 'Auth\LogoutController@logout');
 Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| Blog Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/blogs/{project_id}/{project_name}', 'BlogController@getIndividualBlog')->name('individual.blog');
+Route::get('/blogs/{project_id}/{project_name}/{blog_entry}', 'BlogController@getIndividualBlogPost');
+Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}', 'SQLUpdateController@getBlogPost');
+Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}/{blog_entry}', 'SQLUpdateController@getBlogUpdate');
+Route::get('/blogs/{project_id}/{project_name}/sql_delete/{blog_entry}', 'SQLUpdateController@deleteBlogPost');
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +35,6 @@ Auth::routes();
 
 Route::get('/projects/{project_id}/{project_name}', 'ProjectController@getIndividualProject')->name('individual.project');
 Route::get('/projects', 'ProjectController@getAllProjects');
-Route::get('/blogs/{project_id}/{project_name}', 'BlogController@getIndividualBlog')->name('individual.blog');
-Route::get('/blogs/{project_id}/{project_name}/{blog_entry}', 'BlogController@getIndividualBlogPost');
-Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}', 'SQLUpdateController@getBlogPost');
-Route::post('/blogs/{project_id}/{project_name}/sql_update/{author}/{blog_entry}', 'SQLUpdateController@getBlogUpdate');
-Route::get('/blogs/{project_id}/{project_name}/sql_delete/{blog_entry}', 'SQLUpdateController@deleteBlogPost');
 
 /*
 |--------------------------------------------------------------------------

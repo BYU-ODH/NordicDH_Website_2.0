@@ -1,0 +1,29 @@
+.card-content-front
+{
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.card-content-back
+{
+  max-height: 260px;
+  overflow: hidden;
+}
+
+#stm-thumbnail
+{
+  margin: 25px auto;
+  border: 0px solid #ddd;
+  border-radius: 0px;
+  background-color: inherit;
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 350px)
+{
+  .card .footer
+  {
+    margin: 10px 0 0;
+  }
+}

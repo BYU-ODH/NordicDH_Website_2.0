@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-  <div class="container after-navbar-lg">
+  <div class="container navbar-margin-lg">
     <div class="row">
       <div class="col-md-2"></div>
         <div class="col-md-8">

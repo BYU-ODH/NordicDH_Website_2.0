@@ -4,11 +4,11 @@
 @section('stylesheets')
   <link rel="stylesheet" type="text/css" href="/css/app.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
-  <link rel="stylesheet" type="text/css" href="/css/cards.css">
+  <link rel="stylesheet" type="text/css" href="/css/login.css">
 @endsection
 
 @section('content')
-  <div class="container after-navbar-lg">
+  <div class="container navbar-margin-lg">
     <div class="row">
       <div class="col-md-3 col-sm-2 col-xs-12"></div>
       <div class="col-md-6 col-sm-8 col-xs-12">

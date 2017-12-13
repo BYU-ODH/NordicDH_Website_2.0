@@ -33,10 +33,7 @@
             <span class="icon-bar">
             </span>
           </button>
-          <a class="navbar-brand text-center white-text" href="/">
-            <img class="d-inline-block" id="humanities-logo" src="/images/navbar_logo.png" width="60" height="60" alt="BYU Humanities Logo">
-            Nordic Digital Humanities Lab
-          </a>
+          <a class="navbar-brand text-center white-text" href="/"><img class="d-inline-block" id="humanities-logo" src="/images/navbar_logo.png" width="60" height="60" alt="BYU Humanities Logo">Nordic Digital Humanities Lab</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
           <form class="nav navbar-nav navbar-right" id="searchbox" autocomplete="off">
@@ -55,7 +52,7 @@
               </a>
             </li>
             <li class="" id="contact-link">
-              <a class="white-text" href="coming_soon">
+              <a class="white-text" href="contact">
                 Contact Us
               </a>
             </li>
@@ -75,11 +72,11 @@
             @php
               $links = App\Link::all();
             @endphp
-            <ul>
+            <ul class="unbulleted-list">
               @foreach($links as $link)
                 @if($link->link_category == "site")
                   <li>
-                    <a href="{{$link->link_url}}" class="light-grey-text">
+                    <a href="{{$link->link_url}}" class="site-links">
                       {{$link->link_text}}
                     </a>
                   </li>
@@ -91,13 +88,13 @@
             <h4>
               Administrator Tools
             </h4>
-            <ul>
+            <ul class="unbulleted-list">
               @foreach($links as $link)
                 @if($link->link_category == "administrator_tools")
                   @if(Auth::check())
                     @if($link->admin_only)
                       <li>
-                        <a href="{{$link->link_url}}" class="light-grey-text">
+                        <a href="{{$link->link_url}}" class="site-links">
                           {{$link->link_text}}
                         </a>
                       </li>
@@ -105,7 +102,7 @@
                   @else
                     @if(!$link->admin_only)
                       <li>
-                        <a href="{{$link->link_url}}" class="light-grey-text">
+                        <a href="{{$link->link_url}}" class="site-links">
                           {{$link->link_text}}
                         </a>
                       </li>
@@ -119,11 +116,11 @@
             <h4>
               Help
             </h4>
-            <ul>
+            <ul class="unbulleted-list">
               @foreach($links as $link)
                 @if($link->link_category == "help")
                   <li>
-                    <a href="{{$link->link_url}}" class="light-grey-text">
+                    <a href="{{$link->link_url}}" class="site-links">
                       {{$link->link_text}}
                     </a>
                   </li>
@@ -135,11 +132,11 @@
           <h4>
             Related Links
           </h4>
-          <ul>
+          <ul class="unbulleted-list">
             @foreach($links as $link)
               @if($link->link_category == "related_links")
                 <li>
-                  <a href="{{$link->link_url}}" class="light-grey-text">
+                  <a href="{{$link->link_url}}" class="site-links">
                       {{$link->link_text}}
                   </a>
                 </li>

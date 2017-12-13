@@ -2,14 +2,14 @@
 
 @section('title', 'Lagerlöf Word Comparison')
 @section('stylesheets')
-  <link rel="stylesheet" type="text/css" href="/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/lagerlöf.css">
 @endsection
 
 @section('content')
-  <div class="jumbotron after-navbar jumbotron-white-background">
+  <div class="jumbotron navbar-margin jumbotron-white-background">
     <div class="container text-center">
 	    <h1>
         Topics Containing {{mb_convert_case($word, MB_CASE_TITLE, "UTF-8")}}
@@ -31,7 +31,7 @@
 	            <tr>
                 <td class="text-center col-md-4 col-sm-4 col-xs-4 align-middle td-borderless">
                   <h4>
-              	    <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
+              	    <a class="grey-text" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
                       {{substr($main->where('global_id', $topic->global_id)->first()->chunk_size, 0, 4) . ' Word Chunks'}}
                       @if (strpos($main->where('global_id', $topic->global_id)->first()->chunk_size, 'NA'))
                         {{'(Nouns and Adjectives), '}}

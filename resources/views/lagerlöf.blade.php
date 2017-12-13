@@ -2,15 +2,15 @@
 
 @section('title', 'Lagerlöf')
 @section('stylesheets')
-  <link rel="stylesheet" type="text/css" href="/css/cards.css">
-  <link rel="stylesheet" type="text/css" href="/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/app.css">
+  <link rel="stylesheet" type="text/css" href="/css/cards.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/lagerlöf.css">
 @endsection
 
 @section('content')
-  <header class="cd-header after-navbar text-center">
+  <header class="cd-header navbar-margin text-center">
     <div class="col-md-8 offset-md-2 col-sm-12">
       <h3>
         Topic modeling uses statistical algorithms to discover the latent semantic structures in an extensive text body. This project focuses on the work of a single author, Selma Lagerlöf, to test the uses and limits of topic modeling. All of the topic models generated from this research are listed below. For your convenience we have included filters to help you find the topics you're looking for.
@@ -51,7 +51,7 @@
                   </h3>
                 </div>
                 <p class="topic">
-                  <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
+                  <a class="grey-text" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
                     {{substr($topic->chunk_size, 0, 4) . ' Word Chunks'}}
                     @if (strpos($topic->chunk_size, 'NA'))
                       {{'(Nouns and Adjectives), '}}
@@ -81,7 +81,7 @@
                     $topic_number = $topic->topic_number;
                   @endphp
                   @foreach($word_list as $word)
-                    <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word}}">
+                    <a class="grey-text" href="/projects/1/Selma%20Lagerlöf%20Project/word_comparison/{{$chunk_size}}/{{$part_of_speech}}/{{$topic_number}}/{{$word}}">
                       @if($word_list[$words_size -1] != $word)
                         {{$word}},
                       @else
@@ -103,7 +103,7 @@
           <div class="back">
             <div class="header">
               <h5 class="motto">
-                <a class="gray-link" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
+                <a class="grey-text" href="/projects/1/Selma%20Lagerlöf%20Project/{{str_replace('/', '-', $topic->global_id)}}">
                   {{substr($topic->chunk_size, 0, 4) . ' Word Chunks'}}
                   @if (strpos($topic->chunk_size, 'NA'))
                     {{'(Nouns and Adjectives), '}}

@@ -4,12 +4,12 @@
 @section('stylesheets')
 	<link rel="stylesheet" type="text/css" href="/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/css/app.css"> 
+	<link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 @endsection
 
 @section('content')
-	<div class="jumbotron after-navbar">
+	<div class="jumbotron navbar-margin">
 		<div class="container">
 			<div claas="text-center">
 				<p>

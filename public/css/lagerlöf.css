@@ -1,0 +1,37 @@
+.jumbotron-default-background
+{
+	background-color: #f5f8fa;
+}
+
+.jumbotron-white-background
+{
+  background: #ffffff;
+  margin-bottom: 0px;
+}
+
+.passage-viewer
+{
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.relevant-passages
+{
+  width: 100%;
+  height: 200px;
+  overflow-y: scroll;
+  font-size: 20px;
+}
+
+.table .td-borderless
+{
+  border-top: none;
+}
+
+.visualizations
+{
+  width: 100%;
+  height: 765px;
+  overflow-y: scroll;
+}

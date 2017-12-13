@@ -5,7 +5,7 @@
     outline: 0 !important;
 }
 
-.card-container 
+.card-container
 {
 	-webkit-perspective: 800px;
     -moz-perspective: 800px;
@@ -25,7 +25,7 @@
 
 
 .card-container.static:hover .card,
-.card-container.static.hover .card 
+.card-container.static.hover .card
 {
 	-webkit-transform: none;
     -moz-transform: none;
@@ -33,7 +33,7 @@
     transform: none;
 }
 
-.card 
+.card
 {
 	-webkit-transition: -webkit-transform .5s;
     -moz-transition: -moz-transform .5s;
@@ -44,11 +44,10 @@
     -o-transform-style: preserve-3d;
     transform-style: preserve-3d;
 	position: relative;
-    cursor: pointer;
 }
 
 
-.front, .back 
+.front, .back
 {
 	-webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -62,14 +61,14 @@
 }
 
 
-.front 
+.front
 {
 	z-index: 2;
     overflow: hidden;
 }
 
 
-.back 
+.back
 {
 	-webkit-transform: rotateY( 180deg );
     -moz-transform: rotateY( 180deg );
@@ -87,7 +86,7 @@
     color: #444444;
 }
 
-.card-container, .front, .back 
+.card-container, .front, .back
 {
 	width: 100%;
 	height: 500px;
@@ -137,12 +136,12 @@
     padding: 10px 20px 20px;
 }
 
-.card .content .main 
+.card .content .main
 {
     min-height: 160px;
 }
 
-.card .name 
+.card .name
 {
     font-size: 22px;
     line-height: 28px;
@@ -289,7 +288,7 @@
     }
 }
 
-.card .footer 
+.card .footer
 {
     border-top: 1px solid #EEEEEE;
     color: #999999;
@@ -313,7 +312,7 @@
     margin-top: -6px;
 }
 
-.card .header 
+.card .header
 {
     padding: 15px 20px;
     height: 90px;
@@ -364,7 +363,7 @@
 	color: #777777;
 }
 
-.card .topic-footer 
+.card .topic-footer
 {
     border-top: 1px solid #EEEEEE;
     color: #999999;
@@ -507,7 +506,7 @@ pre.prettyprint
     color: #555;
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
 {
     .front, .back
     {
@@ -515,7 +514,7 @@ pre.prettyprint
         backface-visibility: visible;
     }
 
-    .back 
+    .back
     {
         visibility: hidden;
         -ms-transition: all 0.2s cubic-bezier(.92,.01,.83,.67);

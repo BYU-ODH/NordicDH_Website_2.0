@@ -5,10 +5,11 @@
   <link rel="stylesheet" type="text/css" href="/css/app.css">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/blog.css">
 @endsection
 
 @section('content')
-	<header class="cd-header after-navbar">
+	<header class="cd-header navbar-margin">
 		<div class="container">
 			<h3 class="text-center">
 				Research requires a great deal of time and effort. This blog serves to document the effort that went into the {{ $project->project_name }}. If you are interested in viewing the actual results of this research click the Project Page button below.
